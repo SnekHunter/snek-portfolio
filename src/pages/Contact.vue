@@ -1,11 +1,11 @@
 <template>
   <div class="info-container">
-    <h1>Get in Touch</h1>
+    <h1>Want to Contact Me?</h1>
     <p>I'd love to hear from you! Here's how you can reach me:</p>
 
     <div class="highlight-box">
-      <p><strong>Email:</strong> student@example.com</p>
-      <p><strong>GitHub:</strong> github.com/mystudent</p>
+      <p><strong>Email:</strong> qawiem.work.email@gmail.com</p>
+      <p><strong>GitHub:</strong> https://github.com/SnekHunter</p>
     </div>
 
     <h2>Send me a message:</h2>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-export default {
-  name: "Contact",
-};
+  export default {
+    name: 'Contact',
+  };
 </script>

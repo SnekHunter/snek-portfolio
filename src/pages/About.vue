@@ -3,8 +3,7 @@
     <h1>About Me</h1>
     <p>
       I'm just another person trying to learn web development using React and
-      Vue. I'm excited about building my own websites and improve my current
-      skills!
+      Vue. I'm excited about building websites and improve my current skills!
     </p>
 
     <h2>What I'm Learning:</h2>
@@ -26,7 +25,7 @@
 </template>
 
 <script>
-export default {
-  name: "About",
-};
+  export default {
+    name: 'About',
+  };
 </script>

@@ -16,33 +16,33 @@
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
-import CreatePost from "@/components/post-components/CreatePost.vue";
+  import { ref, onMounted } from 'vue';
+  import CreatePost from '@/components/post-components/CreatePost.vue';
 
-export default {
-  name: "Posts",
-  components: { CreatePost },
-  setup() {
-    const posts = ref([]);
-    const loading = ref(true);
-    const error = ref(null);
+  export default {
+    name: 'Posts',
+    components: { CreatePost },
+    setup() {
+      const posts = ref([]);
+      const loading = ref(true);
+      const error = ref(null);
 
-    onMounted(async () => {
-      try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-        if (!res.ok) throw new Error("Failed to fetch posts");
-        posts.value = await res.json();
-      } catch (err) {
-        error.value = err.message;
-      } finally {
-        loading.value = false;
-      }
-    });
+      onMounted(async () => {
+        try {
+          const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+          if (!res.ok) throw new Error('Failed to fetch posts');
+          posts.value = await res.json();
+        } catch (err) {
+          error.value = err.message;
+        } finally {
+          loading.value = false;
+        }
+      });
 
-    const addPost = (newPost) => {
-      posts.value.push(newPost);
-    };
-    return { posts, loading, error, addPost };
-  },
-};
+      const addPost = (newPost) => {
+        posts.value.push(newPost);
+      };
+      return { posts, loading, error, addPost };
+    },
+  };
 </script>

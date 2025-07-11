@@ -9,7 +9,7 @@
       <textarea v-model="body" placeholder="Post Details" />
       <div class="create-post-actions">
         <button @click="handleCreate" :disabled="loading">
-          {{ loading ? "Creating..." : "Create" }}
+          {{ loading ? 'Creating...' : 'Create' }}
         </button>
         <button @click="hidden = true">Cancel</button>
       </div>
@@ -18,43 +18,43 @@
 </template>
 
 <script>
-import { ref } from "vue";
+  import { ref } from 'vue';
 
-export default {
-  name: "CreatePost",
-  emits: ["create"],
+  export default {
+    name: 'CreatePost',
+    emits: ['create'],
 
-  setup(_, { emit }) {
-    const hidden = ref(true);
-    const title = ref("");
-    const body = ref("");
-    const loading = ref(false);
+    setup(_, { emit }) {
+      const hidden = ref(true);
+      const title = ref('');
+      const body = ref('');
+      const loading = ref(false);
 
-    const handleCreate = async () => {
-      loading.value = true;
+      const handleCreate = async () => {
+        loading.value = true;
 
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
 
-        body: JSON.stringify({
-          title: title.value,
-          body: body.value,
-          userId: 1,
-        }),
-      });
+          body: JSON.stringify({
+            title: title.value,
+            body: body.value,
+            userId: 1,
+          }),
+        });
 
-      const data = await res.json();
-      emit("create", { ...data, title: title.value, body: body.value });
-      alert("Post created! ID: " + data.id);
+        const data = await res.json();
+        emit('create', { ...data, title: title.value, body: body.value });
+        alert('Post created! ID: ' + data.id);
 
-      title.value = "";
-      body.value = "";
-      hidden.value = true;
-      loading.value = false;
-    };
+        title.value = '';
+        body.value = '';
+        hidden.value = true;
+        loading.value = false;
+      };
 
-    return { hidden, title, body, loading, handleCreate };
-  },
-};
+      return { hidden, title, body, loading, handleCreate };
+    },
+  };
 </script>
