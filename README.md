@@ -1,5 +1,56 @@
-# Vue 3 + Vite
+# 🐍 Snek Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://snek-portfolio.vercel.app)  
+[![Vue 3](https://img.shields.io/badge/Vue-3.2-brightgreen)](https://vuejs.org/)  
+[![Vite](https://img.shields.io/badge/Vite-4.0-blue)](https://vitejs.dev/)  
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+---
+
+> My personal portfolio, showcasing my skills and projects in a clean, responsive design.
+
+## 🚀 Table of Contents
+
+- [Demo](#demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Build](#build)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 🌐 Demo
+
+Check out the live site:  
+👉 https://snek-portfolio.vercel.app
+
+## ✨ Features
+
+- ✅ **Responsive Layout** — adapts to any screen size
+- 🎨 **Minimalist Design** — clean UI with subtle color accents
+- ⚡ **Fast Performance** — powered by Vite’s dev server and optimized build
+- 🛠️ **Component-based** — modular Vue 3 Single-File Components
+- 🚧 **Under Construction** — more sections and projects coming soon
+
+## 🛠️ Tech Stack
+
+| Name       | Version / Notes       |
+| ---------- | --------------------- |
+| Vue 3      | Composition API       |
+| Vite       | Lightning-fast builds |
+| JavaScript | ES6+                  |
+| CSS        | Modern Flexbox/Grid   |
+| HTML       | Semantic markup       |
+
+## 🔧 Installation
+
+```bash
+# Clone repo
+git clone https://github.com/SnekHunter/snek-portfolio.git
+cd snek-portfolio
+
+# Install dependencies
+npm install
+```

@@ -12,11 +12,7 @@ const open = ref(false);
       </router-link>
 
       <!-- Burger menu for responsive design -->
-      <button
-        class="menu-toggle"
-        @click="open = !open"
-        aria-label="Toggle menu"
-      >
+      <button class="menu-toggle" @click="open = !open" aria-label="Toggle menu">
         <img src="@/assets/burger-menu.png" alt="dropdown-menu" />
       </button>
 
