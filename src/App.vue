@@ -21,7 +21,7 @@ const open = ref(false);
       </button>
 
       <div :class="['nav-links', { open }]">
-        <router-link @click="open = false" to="/">Home</router-link>
+        <router-link @click="open = false" to="/">Home Page</router-link>
         <router-link @click="open = false" to="/projects">Projects</router-link>
         <router-link @click="open = false" to="/about">About</router-link>
         <router-link @click="open = false" to="/contact">Contact</router-link>
