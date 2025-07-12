@@ -1,60 +1,54 @@
-<template>
-  <div class="create-post-bar">
-    <button v-if="hidden" class="create-button" @click="hidden = false">
-      Create New Post
-    </button>
-    <div v-else>
-      <h2>Create a New Post</h2>
-      <input v-model="title" placeholder="Post Title" />
-      <textarea v-model="body" placeholder="Post Details" />
-      <div class="create-post-actions">
-        <button @click="handleCreate" :disabled="loading">
-          {{ loading ? 'Creating...' : 'Create' }}
-        </button>
-        <button @click="hidden = true">Cancel</button>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
+<script setup>
   import { ref } from 'vue';
-
-  export default {
-    name: 'CreatePost',
-    emits: ['create'],
-
-    setup(_, { emit }) {
-      const hidden = ref(true);
-      const title = ref('');
-      const body = ref('');
-      const loading = ref(false);
-
-      const handleCreate = async () => {
-        loading.value = true;
-
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-
-          body: JSON.stringify({
-            title: title.value,
-            body: body.value,
-            userId: 1,
-          }),
-        });
-
-        const data = await res.json();
-        emit('create', { ...data, title: title.value, body: body.value });
-        alert('Post created! ID: ' + data.id);
-
-        title.value = '';
-        body.value = '';
-        hidden.value = true;
-        loading.value = false;
-      };
-
-      return { hidden, title, body, loading, handleCreate };
-    },
+  const emit = defineEmits(['created', 'cancel']);
+  const newTitle = ref('');
+  const newBody = ref('');
+  const isPosting = ref(false);
+  const createPost = async () => {
+    const title = newTitle.value.trim();
+    const body = newBody.value.trim();
+    if (!title || !body) return;
+    isPosting.value = true;
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title, body, userId: 1 }),
+    });
+    if (res.ok) {
+      const newPost = await res.json();
+      emit('created', {
+        ...newPost,
+        id: newPost.id || Date.now(),
+        title,
+        body,
+        userId: 1,
+      });
+      newTitle.value = '';
+      newBody.value = '';
+    } else {
+      alert('Post failed');
+    }
+    isPosting.value = false;
   };
 </script>
+
+<template>
+  <div class="create-form">
+    <textarea
+      class="create-title"
+      v-model="newTitle"
+      placeholder="Post title"
+    ></textarea>
+    <textarea
+      class="create-body"
+      v-model="newBody"
+      placeholder="Post body"
+    ></textarea>
+    <button class="primary" :disabled="isPosting" @click="createPost">
+      Post
+    </button>
+    <button class="secondary" :disabled="isPosting" @click="emit('cancel')">
+      Cancel
+    </button>
+  </div>
+</template>

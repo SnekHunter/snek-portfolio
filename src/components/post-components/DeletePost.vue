@@ -1,31 +1,22 @@
-<template>
-  <button @click="handleDelete" :disabled="loading">
-    {{ loading ? 'Deleting...' : `Delete Post #${id}` }}
-  </button>
-</template>
-
-<script>
+<script setup>
   import { ref } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
-
-  export default {
-    name: 'DeletePost',
-    setup() {
-      const route = useRoute();
-      const router = useRouter();
-      const id = route.params.id;
-      const loading = ref(false);
-
-      const handleDelete = async () => {
-        if (!confirm('Are you sure you want to delete this post?')) return;
-        loading.value = true;
-        await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-          method: 'DELETE',
-        });
-        setTimeout(() => router.push('/posts'), 600);
-      };
-
-      return { id, loading, handleDelete };
-    },
+  const props = defineProps({ id: Number });
+  const emit = defineEmits(['deleted']);
+  const isDeleting = ref(false);
+  const deletePost = async () => {
+    isDeleting.value = true;
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${props.id}`,
+      { method: 'DELETE' }
+    );
+    if (res.ok) emit('deleted');
+    else alert('Delete failed');
+    isDeleting.value = false;
   };
 </script>
+
+<template>
+  <button class="delete" :disabled="isDeleting" @click="deletePost">
+    Delete
+  </button>
+</template>
