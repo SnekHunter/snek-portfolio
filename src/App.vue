@@ -3,7 +3,6 @@
   import logo from '@/assets/portfolio-logo.png';
   import home from '@/assets/icons/home-icon.svg';
   import project from '@/assets/icons/project-icon.svg';
-  import info from '@/assets/icons/info-icon.svg';
   import contact from '@/assets/icons/contact-icon.svg';
 
   const open = ref(false);
@@ -32,10 +31,6 @@
         <router-link @click="open = false" to="/projects">
           <img :src="project" alt="Project" class="icons" />
           Projects
-        </router-link>
-        <router-link @click="open = false" to="/about">
-          <img :src="info" alt="About" class="icons" />
-          About
         </router-link>
         <router-link @click="open = false" to="/contact">
           <img :src="contact" alt="Contact" class="icons" />
