@@ -4,8 +4,7 @@ import About from '../pages/About.vue';
 import Projects from '../pages/Projects.vue';
 import Contact from '../pages/Contact.vue';
 import NotFound from '../pages/NotFound.vue';
-import Posts from '../pages/post-pages/Posts.vue';
-import PostDetails from '../pages/post-pages/PostDetails.vue';
+import Posts from '../pages/post-pages/PostList.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -13,7 +12,6 @@ const routes = [
   { path: '/projects', component: Projects },
   { path: '/contact', component: Contact },
   { path: '/posts', component: Posts },
-  { path: '/posts/:id', component: PostDetails },
   { path: '/:pathMatch(.*)*', component: NotFound },
 ];
 
