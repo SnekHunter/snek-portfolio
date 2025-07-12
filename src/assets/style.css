@@ -1,242 +1,297 @@
 :root {
-  /* Color Palette */
-  --primary-gradient: linear-gradient(to right, #484349, #2b2d42);
-  --primary: #2b2d42;
-  --primary-light: #6c6a7b;
-  --primary-dark: #2b2d42;
-  --secondary: #18a999;
-  --background: #f7f0f0;
-  --background-dark: #8797b2;
-  --text-color: #333;
-  --muted-color: #666;
-  --primary-button: #109648;
-  --highlight: linear-gradient(to right, #d1d1d1 0%, #f7f0f0 100%);
+  /* Primary (Indigo) */
+    --primary: #818cf8; /* Indigo-400 */
+    --primary-light: #a5b4fc; /* Indigo-300 */
+    --primary-dark: #6366f1; /* Indigo-500 */
+  
+    /* Secondary (Emerald) */
+    --secondary: #34d399;/* Emerald-400 */
+    --secondary-light: #6ee7b7; /* Emerald-300 */
+    --secondary-dark: #10b981; /* Emerald-500 */
+  
+    /* Accent (Coral) */
+    --accent: #e879f9; /* Lavender */
+    --accent-dark: #c084fc;
+  
+    /* Error/Warning (Amber) */
+    --warning: #facc15; /* Amber-400 */
+    --warning-dark: #eab308; /* Amber-500 */
+  
+    /* Neutral Backgrounds */
+    --background: linear-gradient(90deg, #1e222a, #12151b) ; /* Deep charcoal-navy */
+    --background-secondary: linear-gradient(90deg, #232730, #15181e); /* Lighter gradient */
+    --surface: #1f2229; /* Card surfaces */
+    --surface-alt: #282c35; /* Hover/raised surfaces */
+  
+    /* Text and Muted */
+    --text-color: #e8eaf0; /* Soft white */
+    --text-secondary: #a0a6b5; /* Grayish-muted */
+    --muted-color: #6b7280; /* Gray-600 */
+  
+    /* Buttons & CTAs */
+    --primary-button: #22d3ee; /* Coral accent color */
+    --primary-button-hover: #38bdf8;
+    --button-text: #14161a;
+  
+    /* Gradient Highlight */
+    --card-highlight: linear-gradient(90deg, #2a2e38, #1e222a);
+  
+    /* Border Colors */
+    --border-color: #333844;
+  
+    /* Shadows */
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 
-  /* Transitions */
-  --transition: 0.3s ease-in-out;
-  --transition-fast: background 0.2s;
+    /* Transitions */
+    --transition-base: 0.3s ease-in-out;
+    --transition-fast: 0.2s ease;
 }
 
 /* Main Global CSS */
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Roboto, sans-serif;
-  background: var(--background);
-  color: var(--text-color);
-  line-height: 1.6;
+    font-family: Roboto, sans-serif;
+    background: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 main {
-  padding: 2rem 0;
-}
-
-/* Navigation Bar */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  background: var(--primary-gradient);
-  padding: 0.5rem 2rem;
-  font-weight: bold;
+    padding: 2rem 0;
 }
 
 ul {
   list-style: none;
 }
 
-li {
-  margin-top: 1rem;
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: 2px solid var(--secondary-dark);
+    background: var(--background-secondary);
+    box-shadow: var(--shadow);
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+}
+
+nav li {
+    margin-top: 1rem;
 }
 
 .logo-link {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .logo {
-  height: 45px;
-  width: auto;
+    height: 45px;
+    width: auto;
 }
 
 .icons {
-  display: none;
-  height: 45px;
-  width: auto;
+    display: none;
+    height: 45px;
+    width: auto;
 }
 
 .nav-links {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .nav-links a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: var(--transition-fast);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition-fast);
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    background: var(--surface-alt);
+}
 .nav-links a.router-link-active {
-  background: var(--secondary);
+    background: var(--surface);
 }
 
 /* Containers Global CSS */
 .container {
-  /* max-width: 800px; */
-  width: 100%;
-  margin: 0;
-  padding: 2rem;
+    /* max-width: 800px; */
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
 }
 
 .info-container {
-  max-width: 700px;
-  width: 100%;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
 .info-container h1 {
-  font-size: 2.25rem;
-  text-align: center;
-  margin-bottom: 1rem;
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-dark);
 }
 
 /* Setting header color so it doesn't follow parent CSS */
 .info-container h1,
 .info-container h2,
 .info-container h3 {
-  color: var(--text-color);
+    color: var(--text-color);
 }
 
 .info-container p {
-  color: var(--text-color);
-  line-height: 1.7;
-  margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1rem;
 }
 
 .info-container a,
 .info-container.project {
-  color: var(--secondary);
-  text-decoration: none;
-  font-weight: 500;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 /* Interactables */
 button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: var(--transition-fast);
+    background: var(--primary-button);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-fast);
 }
 
 /* Rename these to classname of create, edit and delete */
 button:hover:not(:disabled) {
-  background: var(--secondary);
+    background: var(--primary-button-hover);
 }
 
 button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .menu-toggle {
-  display: none;
-  background-color: transparent;
+    display: none;
+    background-color: transparent;
 }
 
 input,
 textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 0.5rem 0;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin: 0.5rem 0;
 }
 
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 /* Start of main CSS */
 .highlight-box {
-  background: var(--highlight);
-  border-left: 4px solid var(--secondary);
-  padding: 1rem 1.5rem;
-  border-radius: 4px;
-  margin: 1rem 0;
+    background: var(--card-highlight);
+    border-left: 4px solid var(--secondary-dark);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    animation: unhoverAnimation 0.3s forwards;
 }
 
 .highlight-box.project:hover {
-  scale: 1.05;
+    animation: hoverAnimation 0.3s forwards;
+}
+
+@keyframes hoverAnimation {
+  0% {
+      transform: scale(1);
+    }
+  
+    100% {
+      transform: scale(1.02);
+    }
+}
+
+@keyframes unhoverAnimation {
+  0% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .title-image {
-  display: block;
-  margin: 0 auto 1.5rem;
-  max-width: 25%;
-  height: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
+    max-width: 25%;
+    height: auto;
 }
 
 @media (max-width: 600px) {
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--primary-gradient);
-    flex-direction: column;
-    width: 100%;
-    padding: 0.5rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    /* border-radius: 4px; */
-  }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--background-secondary);
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid var(--secondary-dark);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
 
-  .nav-links.open {
-    display: flex;
-  }
+    .nav-links.open {
+        display: flex;
+    }
 
-  .nav-links a {
-    display: flex;
-    gap: 1.5rem;
-    padding: 0.75rem 1rem;
-  }
+    .nav-links a {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0.75rem 1rem;
+    }
 
-  .info-container {
-    padding: 1rem;
-  }
+    .info-container {
+        padding: 1rem;
+    }
 
-  .info-container h1 {
-    font-size: 1.75rem;
-  }
+    .info-container h1 {
+        font-size: 1.75rem;
+    }
 
-  /* Burger Menu */
-  .menu-toggle {
-    display: flex;
-  }
+    /* Burger Menu */
+    .menu-toggle {
+        display: flex;
+    }
 
-  .menu-toggle img,
-  .icons {
-    width: 25px;
-    height: auto;
-  }
+    .menu-toggle img,
+    .icons {
+        width: 25px;
+        height: auto;
+    }
 
-  .icons {
-    display: block;
+    .icons {
+        display: block;
+    }
   }
-}
