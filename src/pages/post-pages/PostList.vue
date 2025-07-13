@@ -89,9 +89,12 @@
   <div class="app-container">
     <SearchBar @search="handleSearch" />
     <SortDropdown @sort="handleSort" />
-    <button class="accent" @click="showCreate = !showCreate">
-      {{ showCreate ? 'Cancel' : 'Create Post' }}
-    </button>
+    <div class="actions-bar">
+      <RouterLink class="back-btn" to="/projects">Back to Projects</RouterLink>
+      <button class="create-btn" @click="showCreate = !showCreate">
+        {{ showCreate ? 'Cancel' : 'Create Post' }}
+      </button>
+    </div>
     <CreatePost
       v-if="showCreate"
       @created="handleCreate"
