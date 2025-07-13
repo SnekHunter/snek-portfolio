@@ -47,8 +47,8 @@
     <button class="primary" :disabled="isPosting" @click="createPost">
       Post
     </button>
-    <button class="secondary" :disabled="isPosting" @click="emit('cancel')">
+    <!-- <button class="secondary" :disabled="isPosting" @click="emit('cancel')">
       Cancel
-    </button>
+    </button> -->
   </div>
 </template>
