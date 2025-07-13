@@ -1,0 +1,49 @@
+/* Animation for page change/load */
+.fade-in {
+    opacity: 0;
+    animation: fadeInEffect 0.5s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Normal Fade-In */
+/* .fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+    opacity: 1;
+} */
+
+/* Slide/Scale Animation */
+.fade-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes fadeInEffect {
+    to {
+        opacity: 1;
+    }
+}
