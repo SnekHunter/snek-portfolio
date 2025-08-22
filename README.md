@@ -1,4 +1,4 @@
-# 🐍 Snek Portfolio
+# 🐍 Snek Portfolio Website
 
 [![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://snek-portfolio.vercel.app) [![Vue 3](https://img.shields.io/badge/Vue-3.2-brightgreen)](https://vuejs.org/) [![Vite](https://img.shields.io/badge/Vite-4.0-blue)](https://vitejs.dev/) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
